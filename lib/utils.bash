@@ -76,33 +76,33 @@ install_version() {
 }
 
 get_arch() {
-  local arch=""
+	local arch=""
 
-  case "$(uname -m)" in
-    x86_64 | amd64) arch="x86_64" ;;
-    i686 | i386) arch="64bit" ;;
-    aarch64 | arm64) arch="arm64" ;;
-    *)
-      fail "Arch '$(uname -m)' not supported!"
-      ;;
-  esac
+	case "$(uname -m)" in
+	x86_64 | amd64) arch="x86_64" ;;
+	i686 | i386) arch="64bit" ;;
+	aarch64 | arm64) arch="arm64" ;;
+	*)
+		fail "Arch '$(uname -m)' not supported!"
+		;;
+	esac
 
-  echo -n $arch
+	echo -n $arch
 }
 
 get_platform() {
-  local platform=""
+	local platform=""
 
-  case "$(uname | tr '[:upper:]' '[:lower:]')" in
-    darwin) platform="darwin" ;;
-    linux) platform="linux" ;;
-    windows) platform="windows" ;;
-    openbsd) platform="openbsd" ;;
-    freebsd) platform="freebsd" ;;
-    *)
-      fail "Platform '$(uname -m)' not supported!"
-      ;;
-  esac
+	case "$(uname | tr '[:upper:]' '[:lower:]')" in
+	darwin) platform="darwin" ;;
+	linux) platform="linux" ;;
+	windows) platform="windows" ;;
+	openbsd) platform="openbsd" ;;
+	freebsd) platform="freebsd" ;;
+	*)
+		fail "Platform '$(uname -m)' not supported!"
+		;;
+	esac
 
-  echo -n $platform
+	echo -n $platform
 }
