@@ -10,8 +10,9 @@ source "${plugin_dir}/lib/utils.bash"
 
 mkdir -p "$ASDF_DOWNLOAD_PATH"
 
-# TODO: Adapt this to proper extension and adapt extracting strategy.
-release_file="$ASDF_DOWNLOAD_PATH/$TOOL_NAME-$ASDF_INSTALL_VERSION-linux-x86_64.tar.gz"
+PLATFORM = get_platform
+ARCH = get_arch
+release_file="$ASDF_DOWNLOAD_PATH/$TOOL_NAME-$ASDF_INSTALL_VERSION-$PLATFORM-$ARCH.tar.gz"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"
@@ -19,7 +20,6 @@ download_release "$ASDF_INSTALL_VERSION" "$release_file"
 echo ""
 echo "$ASDF_DOWNLOAD_PATH"
 echo "$release_file"
-ls -ltr $ASDF_DOWNLOAD_PATH
 echo ""
 
 #  Extract contents of tar.gz file into the download directory
